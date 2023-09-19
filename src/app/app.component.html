@@ -1,0 +1,8 @@
+<div class="main">
+  <h1>Newest Stories:</h1>
+  <ul>
+    <div *ngFor="let stories of recentNews" class="card-container">
+      <card-overview [title]="stories.title" [url]="stories.url"></card-overview>
+    </div>
+  </ul>
+</div>
