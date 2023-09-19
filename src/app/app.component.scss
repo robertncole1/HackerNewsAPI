@@ -1,7 +1,15 @@
-.main {
-  background-color: lightgray;
+.title {
+  color: white;
 }
 
 .card-container {
-  margin: 20px;
+  margin: 20px 0px;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.mat-mdc-form-field {
+  display: block;
 }

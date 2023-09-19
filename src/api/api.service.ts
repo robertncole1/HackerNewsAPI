@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
-import { map, mergeMap, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +16,7 @@ export class ApiService {
     return forkJoin(observables);
   }
 
-  getTopIds(): Observable<any> {
+  getNewestIds(): Observable<any> {
     return this.http.get(this.recentStoriesUrl);
   }
 }

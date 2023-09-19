@@ -1,8 +1,40 @@
 <div class="main">
-  <h1>Newest Stories:</h1>
-  <ul>
-    <div *ngFor="let stories of recentNews" class="card-container">
-      <card-overview [title]="stories.title" [url]="stories.url"></card-overview>
-    </div>
-  </ul>
+  <div class="form-group">
+    <mat-form-field>
+      <input
+        matInput
+        class="search-bar"
+        id="search-text"
+        aria-describedby="search-text"
+        [(ngModel)]="searchText"
+        placeholder="Enter text to search"
+        autofocus
+      />
+    </mat-form-field>
+  </div>
+  <h1 class="title">Newest Stories:</h1>
+  <mat-paginator
+    [length]="this.recentNews.length"
+    [pageSize]="50"
+    aria-label="Select page"
+    (page)="OnPageChange($event)"
+  >
+  </mat-paginator>
+  <div
+    *ngFor="let stories of pagedList | appFilter : searchText"
+    class="card-container"
+  >
+    <card-overview
+      *ngIf="stories.url"
+      [title]="stories.title"
+      [url]="stories.url"
+    ></card-overview>
+  </div>
+  <mat-paginator
+    [length]="this.recentNews.length"
+    [pageSize]="50"
+    aria-label="Select page"
+    (page)="OnPageChange($event)"
+  >
+  </mat-paginator>
 </div>
